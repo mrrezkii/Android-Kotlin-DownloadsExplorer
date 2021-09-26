@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Downloads Folder Explorer</string>
+
+    <string name="buat_file">Buat file</string>
+    <string name="ubah_file">Ubah file</string>
+    <string name="hapus_file">Hapus file</string>
+    <string name="hasil_baca_file">Hasil Baca File</string>
 </resources>
