@@ -8,9 +8,11 @@
     <string name="ubah_file">Ubah file</string>
     <string name="hapus_file">Hapus file</string>
     <string name="hasil_baca_file">Hasil Baca File</string>
+    <string name="baca_file">Baca file</string>
 
     <string name="buat_folder">Buat Folder</string>
     <string name="hapus_folder">Hapus Folder</string>
     <string name="update_folder">Update Folder</string>
+
 
 </resources>

@@ -12,18 +12,24 @@
         android:id="@+id/btn_create_folder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/holo_green_light"
         android:text="@string/buat_folder" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_update_folder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/holo_orange_dark"
         android:text="@string/update_folder" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_delete_folder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/holo_green_light"
         android:text="@string/hapus_folder" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
