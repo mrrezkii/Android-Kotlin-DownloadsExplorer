@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Downloads Folder Explorer</string>
 
+    <string name="files_management">Files Management</string>
+    <string name="folder_management">Folder Management</string>
+
     <string name="buat_file">Buat file</string>
     <string name="ubah_file">Ubah file</string>
     <string name="hapus_file">Hapus file</string>
@@ -8,4 +11,6 @@
 
     <string name="buat_folder">Buat Folder</string>
     <string name="hapus_folder">Hapus Folder</string>
+    <string name="update_folder">Update Folder</string>
+
 </resources>

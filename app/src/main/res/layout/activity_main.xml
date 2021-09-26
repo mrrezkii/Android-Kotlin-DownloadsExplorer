@@ -12,12 +12,12 @@
         android:id="@+id/btn_files"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Files Management" />
+        android:text="@string/files_management" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_folder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Folder Management" />
+        android:text="@string/folder_management" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

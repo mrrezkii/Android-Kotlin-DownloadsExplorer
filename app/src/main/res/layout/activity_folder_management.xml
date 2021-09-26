@@ -15,6 +15,12 @@
         android:text="@string/buat_folder" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_update_folder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update_folder" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_delete_folder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
