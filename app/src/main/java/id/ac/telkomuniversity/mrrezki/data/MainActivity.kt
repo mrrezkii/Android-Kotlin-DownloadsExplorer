@@ -3,6 +3,7 @@ package id.ac.telkomuniversity.mrrezki.data
 import android.Manifest
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import androidx.appcompat.app.AppCompatActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         const val SUCCESS_READ = "Success read $FILE_NAME"
         const val SUCCESS_EDIT = "Success edit $FILE_NAME"
         const val SUCCESS_DELETE = "Success delete $FILE_NAME"
+        const val FILE_NOT_FOUND = "File not found"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,17 +36,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        val downloadsDirectory =
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         binding.btnCreateFile.setOnClickListener {
-            createFile()
+            createFile(downloadsDirectory)
         }
         binding.btnReadFile.setOnClickListener {
-            readFile()
+            readFile(downloadsDirectory)
         }
         binding.btnEditFile.setOnClickListener {
-            editFile()
+            editFile(downloadsDirectory)
         }
         binding.btnDeleteFile.setOnClickListener {
-            deleteFile()
+            deleteFile(downloadsDirectory)
         }
     }
 
@@ -77,9 +81,9 @@ class MainActivity : AppCompatActivity() {
             }.check()
     }
 
-    private fun createFile() {
+    private fun createFile(directory: File) {
         val fillFile = "Try to input a data text"
-        val file = File(filesDir, FILE_NAME)
+        val file = File(directory, FILE_NAME)
 
         val outputStream: FileOutputStream?
         try {
@@ -96,28 +100,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun editFile() {
+    private fun editFile(directory: File) {
         val updateFile = "Update data text"
-        val file = File(filesDir, FILE_NAME)
+        val file = File(directory, FILE_NAME)
 
-        var outputStream: FileOutputStream? = null
-        try {
-            file.createNewFile()
-            outputStream = FileOutputStream(file, false)
-            with(outputStream) {
-                write(updateFile.toByteArray())
-                flush()
-                close()
+        if (file.exists()) {
+            val outputStream: FileOutputStream?
+            try {
+                file.createNewFile()
+                outputStream = FileOutputStream(file, false)
+                with(outputStream) {
+                    write(updateFile.toByteArray())
+                    flush()
+                    close()
+                }
+                showToast(SUCCESS_EDIT)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-            showToast(SUCCESS_EDIT)
-        } catch (e: Exception) {
-            e.printStackTrace()
+        } else {
+            showToast(FILE_NOT_FOUND)
         }
+
     }
 
-    private fun readFile() {
-        val sdCard = filesDir
-        val file = File(sdCard, FILE_NAME)
+    private fun readFile(directory: File) {
+        val file = File(directory, FILE_NAME)
 
         if (file.exists()) {
             val text = StringBuilder()
@@ -137,15 +145,19 @@ class MainActivity : AppCompatActivity() {
                 Timber.e("Error : $e")
             }
             binding.tvRead.text = text.toString()
+        } else {
+            showToast(FILE_NOT_FOUND)
         }
 
     }
 
-    private fun deleteFile() {
-        val file = File(filesDir, FILE_NAME)
+    private fun deleteFile(directory: File) {
+        val file = File(directory, FILE_NAME)
         if (file.exists()) {
             file.delete()
             showToast(SUCCESS_DELETE)
+        } else {
+            FILE_NOT_FOUND
         }
     }
 }
