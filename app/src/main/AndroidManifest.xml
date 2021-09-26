@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DownloadsFolderExplorer">
         <activity
+            android:name=".data.FolderManagementActivity"
+            android:exported="true" />
+        <activity
+            android:name=".data.FilesManagementActivity"
+            android:exported="true" />
+        <activity
             android:name=".data.MainActivity"
             android:exported="true">
             <intent-filter>

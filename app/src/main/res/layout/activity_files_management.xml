@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".data.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_create_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/buat_file" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_edit_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ubah_file" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_read_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Baca file" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_delete_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hapus_file" />
+
+    <TextView
+        android:id="@+id/tv_read"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_gravity="top|left"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:hint="@string/hasil_baca_file"
+        android:inputType="textMultiLine"
+        android:padding="5dp"
+        android:textColorHint="#000"
+        tools:ignore="RtlHardcoded,TextViewEdits" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
