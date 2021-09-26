@@ -49,4 +49,7 @@ dependencies {
 
     // Dexter
     implementation 'com.karumi:dexter:6.2.3'
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

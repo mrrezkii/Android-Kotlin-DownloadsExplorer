@@ -1,4 +1,4 @@
-package id.ac.telkomuniversity.mrrezki
+package id.ac.telkomuniversity.mrrezki.data
 
 import android.Manifest
 import android.content.Intent
@@ -9,6 +9,8 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import id.ac.telkomuniversity.mrrezki.R
+import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             ).withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(p0: MultiplePermissionsReport?) {
                     if (p0!!.areAllPermissionsGranted()) {
-                        //Timber.d("All permissions are granted")
+                        Timber.d("All permissions are granted")
                     } else {
                         val intent: Intent = intent
                         finish()
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }).withErrorListener {
-                //Timber.d("$it")
+                Timber.d("$it")
             }.check()
     }
 }
